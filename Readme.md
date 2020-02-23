@@ -16,6 +16,10 @@ Docker:
 - $ docker build -t test/credit-score .
 - $ docker run -p 8080:8080 -t test/credit-score
 
+### Swagger:
+Use this URL to open swagger UI: 
+- http://localhost:8080/swagger-ui.html#
+
 Assumptions:
 - From the requirement, category for numberOfEmployees is given as 
     - 11 to 15	-> 32

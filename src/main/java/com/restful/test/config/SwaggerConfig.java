@@ -20,12 +20,11 @@ import java.util.List;
 import static java.util.Collections.emptyList;
 
 @Configuration
-@ConditionalOnProperty(prefix = "springfox", name = "enabled", havingValue = "true")
 @EnableSwagger2
 public class SwaggerConfig {
     private static final String BASE_PACKAGE = "com.restful.test";
     private ApiInfo metaData = new ApiInfo("Credit score APIs", "APIs documentation for CreditScore", "1.0", "Terms of service",
-            new Contact("CrossPool", "-", "info@test.com"), "Apache 2.0", "https://www.apache.org/licenses/LICENSE-2.0",
+            new Contact("Bala", "-", "info@test.com"), "Apache 2.0", "https://www.apache.org/licenses/LICENSE-2.0",
             emptyList());
 
     private List<ResponseMessage> customDefaultResponseMessages() {
@@ -39,7 +38,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE + ".controller"))
+                .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build()
                 .globalResponseMessage(RequestMethod.GET, this.customDefaultResponseMessages())
